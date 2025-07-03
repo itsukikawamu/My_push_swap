@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 18:58:57 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/06/28 13:36:48 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/03 03:02:44 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,20 @@
 static void		instradd_back(t_instr **lst, t_instr *new);
 static int		get_instr_enum(char *instr);
 
-int	get_instr_lst(t_instr *lst)
+int	get_instr_lst(t_instr **lst)
 {
 	char	*instr;
 	t_instr	*new;
 
-	lst = NULL;
+	*lst = NULL;
 	while (1)
 	{
 		instr = get_next_line(0);
 		if (!instr)
 			break ;
 		new = malloc(sizeof(t_instr));
+		if (!new)
+			return (free(instr), -1);
 		new->num = get_instr_enum(instr);
 		new->next = NULL;
 		if (new->num == -1)
@@ -35,7 +37,7 @@ int	get_instr_lst(t_instr *lst)
 			free(new);
 			return (-1);
 		}
-		instradd_back(&lst, new);
+		instradd_back(lst, new);
 		free(instr);
 	}
 	return (0);

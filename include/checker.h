@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 13:45:26 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/06/28 13:31:01 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/03 03:02:52 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	validate_arg(int ac, char *av[]);
 // set_stack.c
 t_node	*set_stack(int ac, char *av[]);
 // get_instr_lst.c
-int		get_instr_lst(t_instr *lst);
+int		get_instr_lst(t_instr **lst);
 // excute_instr.c
 void	excute_instr(t_node **stk_a, t_node **stk_b, t_instr *instr_lst);
 // uitls.c

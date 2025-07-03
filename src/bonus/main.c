@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 13:45:02 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/06/28 13:39:56 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/03 18:14:23 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int ac, char *av[])
 	stk_a = set_stack(ac, av);
 	stk_b = NULL;
 	instr_lst = NULL;
-	if (get_instr_lst(instr_lst) == -1)
+	if (get_instr_lst(&instr_lst) == -1)
 	{
 		lstclear(&stk_a);
 		instr_clear(&instr_lst);
@@ -33,6 +33,7 @@ int	main(int ac, char *av[])
 	}
 	excute_instr(&stk_a, &stk_b, instr_lst);
 	lstclear(&stk_a);
+	lstclear(&stk_b);
 	instr_clear(&instr_lst);
 	return (0);
 }
